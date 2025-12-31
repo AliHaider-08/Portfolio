@@ -5,12 +5,13 @@ import {
   FaUser, FaCode, FaBriefcase,
   FaEnvelope, FaGithub, FaLinkedin, FaChevronDown
 } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Navbar = ({ darkMode, toggleDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const location = useLocation();
   const navRef = useRef(null);
   const controls = useAnimation();
 
@@ -126,13 +127,15 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 <div className="flex items-center">
                   <NavLink
                     to={link.path || '#'}
-                    className={({ isActive }) =>
-                      `relative px-4 py-2 text-sm font-medium flex items-center transition-colors duration-300 ${
-                        isActive
+                    className={({ isActive }) => {
+                      const isDropdownActive = link.dropdown?.some(item => location.pathname === item.path);
+                      const isLinkActive = link.path ? isActive : isDropdownActive;
+                      return `relative px-4 py-2 text-sm font-medium flex items-center transition-colors duration-300 ${
+                        isLinkActive
                           ? 'text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20 rounded-full'
                           : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-full'
-                      }`
-                    }
+                      }`;
+                    }}
                     onClick={() => (link.dropdown ? toggleDropdown(index) : closeAllDropdowns())}
                   >
                     <span className="mr-1">{link.icon}</span>
@@ -249,13 +252,15 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 <motion.div key={index} variants={itemVariants} className="relative">
                   <NavLink
                     to={link.path || '#'}
-                    className={({ isActive }) =>
-                      `flex items-center justify-between px-4 py-3 text-base font-medium transition-colors ${
-                        isActive
+                    className={({ isActive }) => {
+                      const isDropdownActive = link.dropdown?.some(item => location.pathname === item.path);
+                      const isLinkActive = link.path ? isActive : isDropdownActive;
+                      return `flex items-center justify-between px-4 py-3 text-base font-medium transition-colors ${
+                        isLinkActive
                           ? 'text-blue-600 dark:text-blue-400'
                           : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                      } rounded-lg`
-                    }
+                      } rounded-lg`;
+                    }}
                     onClick={() => (link.dropdown ? toggleDropdown(index) : closeAllDropdowns())}
                   >
                     <div className="flex items-center">

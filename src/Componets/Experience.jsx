@@ -267,38 +267,10 @@ const Experience = () => {
                   </p>
                 </div>
               </motion.div>
-              <p className="text-gray-600 dark:text-gray-400 text-sm hidden sm:block">
-                Press <kbd className="px-2 py-1 text-xs rounded bg-white/80 dark:bg-gray-800 font-mono border border-gray-200 dark:border-gray-600">/</kbd> or <kbd className="px-2 py-1 text-xs rounded bg-white/80 dark:bg-gray-800 font-mono border border-gray-200 dark:border-gray-600">Ctrl+K</kbd> to search
-              </p>
             </div>
             
             {/* Enhanced View Mode Switcher */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600 dark:text-gray-400 mr-2 font-medium">View:</span>
-              <div className="flex gap-1 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1 rounded-xl border border-gray-200 dark:border-gray-600 shadow-lg">
-                {[
-                  { mode: 'timeline', icon: <FaStream />, label: 'Timeline', color: 'from-blue-500 to-purple-600' },
-                  { mode: 'grid', icon: <FaTh />, label: 'Grid', color: 'from-green-500 to-teal-600' },
-                  { mode: 'list', icon: <FaList />, label: 'List', color: 'from-orange-500 to-red-600' },
-                ].map(({ mode, icon, label, color }) => (
-                  <motion.button
-                    key={mode}
-                    onClick={() => setViewMode(mode)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`px-3 py-2 rounded-md transition flex items-center gap-2 text-sm font-medium ${
-                      viewMode === mode
-                        ? `bg-gradient-to-r ${color} text-white shadow-md`
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                    }`}
-                    title={label}
-                  >
-                    {icon}
-                    <span className="hidden sm:inline">{label}</span>
-                  </motion.button>
-                ))}
-              </div>
-            </div>
+
           </div>
 
           {/* Enhanced Statistics Dashboard */}
@@ -518,7 +490,7 @@ const Experience = () => {
               transition={{ duration: 0.3 }}
               className="relative"
             >
-              <div className="absolute left-0 md:left-1/2 h-full w-0.5 bg-primary/50 transform -translate-x-1/2"></div>
+              <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-primary/50 transform -translate-x-1/2"></div>
 
               <div className="space-y-8">
                 {filtered.length > 0 ? (
@@ -531,10 +503,10 @@ const Experience = () => {
                       className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
                     >
                       {/* Timeline dot */}
-                      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-gray-900 z-10"></div>
+                      <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-gray-900 z-10"></div>
                       
                       {/* Content card */}
-                      <div className="w-full md:w-5/12 p-4">
+                      <div className="w-full md:w-5/12 pl-12 md:pl-4 p-4">
                         <div className="bg-glass-light dark:bg-glass-dark backdrop-blur-md rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20 dark:border-gray-700/50 group">
                           <div className="flex items-start justify-between">
                             <div className="flex items-center gap-2">

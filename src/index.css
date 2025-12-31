@@ -1,59 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap");
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 /* Configure dark mode to use class strategy */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
-    body {
-        font-family: 'Inter', sans-serif;
-        color: #1f2937;
-        /* gray-800 for light mode */
-    }
+  body {
+    font-family: "Inter", sans-serif;
+    color: #1f2937;
+    /* gray-800 for light mode */
+  }
 
-    .dark body {
-        color: #f3f4f6;
-        /* gray-100 for dark mode */
-    }
+  .dark body {
+    color: #f3f4f6;
+    /* gray-100 for dark mode */
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'Outfit', sans-serif;
-        color: #111827;
-        /* gray-900 for light mode */
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Outfit", sans-serif;
+    color: #111827;
+    /* gray-900 for light mode */
+  }
 
-    .dark h1,
-    .dark h2,
-    .dark h3,
-    .dark h4,
-    .dark h5,
-    .dark h6 {
-        color: #f9fafb;
-        /* gray-50 for dark mode */
-    }
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: #f9fafb;
+    /* gray-50 for dark mode */
+  }
 
-    /* Ensure paragraphs and labels are visible */
-    p,
-    span,
-    label,
-    div {
-        color: inherit;
-    }
+  /* Ensure paragraphs and labels are visible */
+  p,
+  span,
+  label,
+  div {
+    color: inherit;
+  }
 
-    /* Form elements dark mode */
-    .dark input,
-    .dark textarea,
-    .dark select {
-        color: #f3f4f6;
-    }
+  /* Form elements dark mode */
+  .dark input,
+  .dark textarea,
+  .dark select {
+    color: #f3f4f6;
+  }
 
-    .dark input::placeholder,
-    .dark textarea::placeholder {
-        color: #9ca3af;
-    }
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: #9ca3af;
+  }
 }

@@ -18,6 +18,7 @@ import {
   FaRocket,
   FaLightbulb,
   FaCode,
+  FaChevronDown,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
@@ -53,7 +54,7 @@ const ALL_SKILLS = {
   Programming: [
     {
       id: "algorithms",
-      name: " Data Structures Algorithms &",
+      name: " Data Structures Algorithms",
       icon: <FaLaptopCode />,
       level: 88,
       years: 1.5,
@@ -324,7 +325,7 @@ const ProgressRing = ({ percentage = 0, size = 80, stroke = 8 }) => {
         </linearGradient>
       </defs>
       <g transform={`translate(${size / 2}, ${size / 2})`}>
-        <circle r={radius} stroke="currentColor" strokeOpacity="0.06" strokeWidth={stroke} fill="transparent" />
+        <circle r={radius} stroke="currentColor" strokeOpacity="0.1" strokeWidth={stroke} fill="transparent" />
         <circle
           r={radius}
           stroke="url(#g2)"
@@ -335,7 +336,7 @@ const ProgressRing = ({ percentage = 0, size = 80, stroke = 8 }) => {
           strokeDashoffset={offset}
           transform="rotate(-90)"
         />
-        <text x="0" y="5" textAnchor="middle" fill="currentColor" style={{ fontWeight: 700, fontSize: 12 }}>
+        <text x="0" y="4" textAnchor="middle" fill="currentColor" style={{ fontWeight: 600, fontSize: 10 }}>
           {pct}%
         </text>
       </g>
@@ -356,58 +357,49 @@ const SkillCard = React.memo(function SkillCard({ skill, onOpen, isFav, onToggle
       className="cursor-pointer relative bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden"
       aria-labelledby={`skill-${skill.id}`}
     >
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-start gap-4">
-          <div className="w-14 h-14 rounded-lg flex items-center justify-center bg-white/30 dark:bg-black/20 text-3xl" style={{ color: skill.color }}>
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start gap-3">
+          <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-gray-50 dark:bg-gray-700/50 text-2xl shrink-0" style={{ color: skill.color }}>
             {skill.icon}
           </div>
           <div>
-            <h3 id={`skill-${skill.id}`} className="text-lg font-semibold text-gray-900 dark:text-white">
+            <h3 id={`skill-${skill.id}`} className="text-base font-bold text-gray-900 dark:text-white leading-tight mb-1">
               {skill.name}
             </h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
-              {skill.category || ""} • {skill.years} yr{skill.years > 1 ? "s" : ""}
+            <p className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+              {skill.years} yr{skill.years > 1 ? "s" : ""} exp
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col items-end gap-2">
-          <div className="w-20 h-20">
-            <ProgressRing percentage={skill.level} size={72} stroke={8} />
+        <div className="flex flex-col items-end gap-2 shrink-0">
+          <div className="w-14 h-14">
+            <ProgressRing percentage={skill.level} size={56} stroke={5} />
           </div>
-          <button
+        </div>
+      </div>
+
+      <p className="mt-4 text-sm text-gray-600 dark:text-gray-300 line-clamp-2 leading-relaxed h-10">
+        {skill.description}
+      </p>
+
+      <div className="mt-5 flex items-center justify-between gap-3 pt-4 border-t border-gray-100 dark:border-gray-700/50">
+        <div className="flex items-center gap-2">
+           <button
             onClick={(e) => {
               e.stopPropagation();
               onToggleFav(skill.id);
             }}
-            className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
-            aria-pressed={!!isFav}
+            className={`text-lg transition-transform active:scale-95 ${isFav ? "text-yellow-400" : "text-gray-300 dark:text-gray-600 hover:text-yellow-400"}`}
             title={isFav ? "Remove favorite" : "Add favorite"}
           >
             {isFav ? "★" : "☆"}
           </button>
         </div>
-      </div>
 
-      <p className="mt-4 text-sm text-gray-700 dark:text-gray-300 line-clamp-3">{skill.description}</p>
-
-      <div className="mt-4 flex items-center justify-between gap-3">
-        <div className="flex-1">
-          <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-            <motion.div
-              className="h-2 rounded-full bg-gradient-to-r from-cyan-400 to-violet-500"
-              initial={{ width: 0 }}
-              animate={{ width: `${skill.level}%` }}
-              transition={{ duration: 1 }}
-              aria-hidden
-            />
-          </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{skill.level}% proficiency</p>
-        </div>
-
-        <div>
-          <button className="px-3 py-1 rounded-md bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm">View</button>
-        </div>
+        <button className="text-xs font-semibold px-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-700/50 text-gray-700 dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          View Details
+        </button>
       </div>
 
       {/* subtle hover overlay */}
@@ -607,18 +599,35 @@ export default function Skills() {
           </div>
 
           <div className="flex items-center gap-3 w-full md:w-auto">
-            <div className="relative w-full md:w-80">
-              <input ref={searchRef} value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search skills, projects or descriptions..." className="w-full pl-10 pr-3 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔎</span>
+            <div className="relative w-full md:w-72 group">
+              <input
+                ref={searchRef}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search skills..."
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border-0 ring-1 ring-gray-200 dark:ring-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 shadow-sm transition-all"
+              />
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-500 transition-colors">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </span>
             </div>
 
-            <select value={sort} onChange={(e) => setSort(e.target.value)} className="px-3 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 text-sm">
-              <option value="level-desc">Level (High → Low)</option>
-              <option value="level-asc">Level (Low → High)</option>
-              <option value="years-desc">Experience (High → Low)</option>
-              <option value="name-asc">Name (A → Z)</option>
-              <option value="name-desc">Name (Z → A)</option>
-            </select>
+            <div className="relative">
+              <select
+                value={sort}
+                onChange={(e) => setSort(e.target.value)}
+                className="appearance-none pl-4 pr-10 py-2.5 rounded-xl border-0 ring-1 ring-gray-200 dark:ring-gray-700 bg-white/50 dark:bg-gray-800/50 text-sm text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 shadow-sm cursor-pointer hover:bg-white dark:hover:bg-gray-800 transition-colors"
+              >
+                <option value="level-desc">Level (High → Low)</option>
+                <option value="level-asc">Level (Low → High)</option>
+                <option value="years-desc">Experience (High → Low)</option>
+                <option value="name-asc">Name (A → Z)</option>
+                <option value="name-desc">Name (Z → A)</option>
+              </select>
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                <FaChevronDown className="w-3 h-3" />
+              </div>
+            </div>
           </div>
         </div>
 

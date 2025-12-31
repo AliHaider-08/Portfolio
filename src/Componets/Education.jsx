@@ -569,7 +569,7 @@ const Education = () => {
                 exit={{ opacity: 0 }}
                 className="relative"
               >
-                <div className="absolute left-0 md:left-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transform -translate-x-1/2 opacity-30"></div>
+                <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transform -translate-x-1/2 opacity-30"></div>
                 <motion.div layout className="space-y-10" transition={{ staggerChildren: 0.1 }}>
                   {filtered.map((item, index) => (
                     <motion.div
@@ -582,10 +582,10 @@ const Education = () => {
                       className={`relative flex items-center ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"}`}
                     >
                       {/* Timeline dot */}
-                      <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-primary to-purple-600 rounded-full border-4 border-white dark:border-gray-900 z-10"></div>
+                      <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-primary to-purple-600 rounded-full border-4 border-white dark:border-gray-900 z-10"></div>
                       
                       {/* Content card */}
-                      <div className="w-full md:w-5/12 p-6">
+                      <div className="w-full md:w-5/12 pl-12 md:pl-6 p-6">
                         <motion.div
                           whileHover={{ scale: 1.02, y: -5 }}
                           className="bg-glass-light dark:bg-glass-dark backdrop-blur-md rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border border-white/20 dark:border-gray-700/50 relative overflow-hidden group"
