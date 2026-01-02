@@ -168,17 +168,17 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 lg:py-12 relative z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-0 sm:py-0 lg:py-0 relative z-10">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-12">
           <motion.div 
-            className="w-full lg:w-1/2 text-center lg:text-left space-y-8"
+            className="w-full lg:w-1/2 text-center lg:text-left space-y-4 pt-4 lg:pt-8"
             variants={container}
             initial="hidden"
             animate="show"
           >
             <motion.div variants={item} className="inline-block">
               <motion.div 
-                className="flex items-center gap-3 px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 rounded-full backdrop-blur-sm border border-blue-300 dark:border-blue-700 shadow-lg hover:shadow-xl"
+                className="flex items-center gap-3 px-6 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 rounded-full backdrop-blur-sm border border-blue-300 dark:border-blue-700 shadow-lg hover:shadow-xl"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 10px 40px rgba(59, 130, 246, 0.4)",
@@ -206,7 +206,7 @@ const HeroSection = () => {
 
             <motion.h1 
               variants={item}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-gray-900 dark:text-white leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-2 text-gray-900 dark:text-white leading-tight"
             >
               Hi, I'm <br />
               <motion.span 
@@ -221,7 +221,7 @@ const HeroSection = () => {
               </motion.span>
             </motion.h1>
 
-            <motion.div variants={item} className="h-16 sm:h-20 mb-6">
+            <motion.div variants={item} className="h-16 sm:h-20 mb-2">
               <TypeAnimation
                 sequence={[
                   '🚀 I build things for the web',
@@ -244,7 +244,7 @@ const HeroSection = () => {
 
             <motion.p 
               variants={item}
-              className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-4 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
               Passionate Full-Stack Developer crafting exceptional digital experiences with cutting-edge technologies. 
               Specialized in React, Node.js, and modern web architectures with a focus on performance and user experience.
@@ -252,7 +252,7 @@ const HeroSection = () => {
 
             <motion.div 
               variants={item}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 max-w-lg mx-auto lg:mx-0"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4 max-w-lg mx-auto lg:mx-0"
             >
               {achievements.map((achievement, index) => (
                 <motion.div
@@ -260,8 +260,8 @@ const HeroSection = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="text-center p-3 sm:p-4 bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-xl border border-white/30 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className={`text-2xl sm:text-3xl mb-2 ${achievement.color}`}>{achievement.icon}</div>
-                  <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1">{achievement.value}</div>
+                  <div className={`text-2xl sm:text-3xl mb-1 ${achievement.color}`}>{achievement.icon}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-0.5">{achievement.value}</div>
                   <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">{achievement.label}</div>
                 </motion.div>
               ))}
@@ -269,7 +269,7 @@ const HeroSection = () => {
 
             <motion.div 
               variants={item}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-4"
             >
               <motion.a
                 href="/resume.pdf"
