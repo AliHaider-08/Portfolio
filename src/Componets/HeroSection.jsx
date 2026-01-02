@@ -83,8 +83,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-16 
-    sm:pb-20 flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/30 
+    <section id="home" className="min-h-screen pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-16 
+    sm:pb-20 flex justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/30 
     overflow-hidden relative">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
