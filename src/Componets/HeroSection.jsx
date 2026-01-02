@@ -83,8 +83,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-16 
-    sm:pb-20 flex justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/30 
+    <section id="home" className="min-h-screen pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 
+    sm:pb-12 flex justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/30 
     overflow-hidden relative">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
@@ -168,8 +168,8 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 relative z-10">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16 min-h-[70vh]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 lg:py-12 relative z-10">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
           <motion.div 
             className="w-full lg:w-1/2 text-center lg:text-left space-y-8"
             variants={container}
